@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-server-form',
@@ -6,28 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./server-form.component.css']
 })
 export class ServerFormComponent implements OnInit {
-  serverElements = [];
-  newServerName = '';
-  newServerContent = '';
-  constructor() { }
+  newServerName: string = '';
+  newServerContent: string = '';
+  @Output() createServer = new EventEmitter<{name: string, content: string}>();
+  @Output() createBlueprint = new EventEmitter<{name: string, content: string}>();
 
-  ngOnInit(): void {
+  constructor() {}
+
+  ngOnInit(): void {}
+
+  onAddServerFromForm() {
+    this.createServer.emit({name: this.newServerName, content: this.newServerContent});
   }
 
-  onAddServer() {
-    // this.serverElements.push({
-    //   type: 'server',
-    //   name: this.newServerName,
-    //   content: this.newServerContent
-    // });
-  }
-
-  onAddBlueprint() {
-    // this.serverElements.push({
-    //   type: 'blueprint',
-    //   name: this.newServerName,
-    //   content: this.newServerContent
-    // });
+  onAddBlueprintFromForm() {
+    this.createBlueprint.emit({name: this.newServerName, content: this.newServerContent});
   }
 
 }
