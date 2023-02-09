@@ -1,4 +1,7 @@
 <div class="container">
+  <app-game-control (scoreStart)="showScore($event)" [score]="appScore"></app-game-control>
+  <p>{{ appScore }} </p>
+  <hr>
   <app-server-form (createServer)="onAddServer($event)" (createBlueprint)="onAddBlueprint($event)"></app-server-form>
   <hr>
   <div class="row">

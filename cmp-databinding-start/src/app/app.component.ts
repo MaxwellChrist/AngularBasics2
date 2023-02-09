@@ -8,6 +8,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   serverElements = [{name: "test", type: "server", content: "just a test"}];
+  appScore = 0;
 
   onAddServer(serverInfo: {name: string, content: string}) {
     this.serverElements.push({
@@ -24,4 +25,10 @@ export class AppComponent {
       content: serverInfo.content
     });
   }
+
+  showScore(item) {
+    console.log(item)
+    this.appScore = item;
+  }
+
 }
