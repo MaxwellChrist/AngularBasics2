@@ -8,7 +8,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
 })
 export class AppComponent {
   serverElements = [{name: "test", type: "server", content: "just a test"}];
-  appScore = 0;
+  odd: number[] = [];
+  even: number[] = [];
 
   onAddServer(serverInfo: {name: string, content: string}) {
     this.serverElements.push({
@@ -27,8 +28,10 @@ export class AppComponent {
   }
 
   showScore(item) {
-    console.log(item)
-    this.appScore = item;
+    if (item % 2 === 0) {
+      this.even.push(item);
+    } else {
+      this.odd.push(item);
+    }
   }
-
 }

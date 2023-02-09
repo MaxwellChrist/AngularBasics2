@@ -14,13 +14,6 @@ export class GameControlComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // startGame() {
-  //   return setInterval(() => {
-  //     this.score++;
-  //     this.scoreStart.emit(this.score);
-  //   }, 1000);
-  // }
-
   startGame() {
     this.onChange = setInterval(() => {
       this.score++;

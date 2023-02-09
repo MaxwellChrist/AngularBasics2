@@ -1,6 +1,15 @@
 <div class="container">
-  <app-game-control (scoreStart)="showScore($event)" [score]="appScore"></app-game-control>
-  <p>{{ appScore }} </p>
+  <app-game-control (scoreStart)="showScore($event)"></app-game-control>
+  <div class="row">
+    <div class="col">
+      <h1>Odd numbers:</h1>
+      <app-odd *ngFor="let num of odd" [currentOddNum]="num"></app-odd>
+    </div>
+    <div class="col">
+      <h1>Even numbers:</h1>
+      <app-even *ngFor="let num of even" [currentEvenNum]="num"></app-even>
+    </div>
+  </div>
   <hr>
   <app-server-form (createServer)="onAddServer($event)" (createBlueprint)="onAddBlueprint($event)"></app-server-form>
   <hr>
