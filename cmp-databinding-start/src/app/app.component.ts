@@ -27,7 +27,7 @@ export class AppComponent {
     });
   }
 
-  showScore(item) {
+  showScore(item: number) {
     if (item % 2 === 0) {
       this.even.push(item);
     } else {
